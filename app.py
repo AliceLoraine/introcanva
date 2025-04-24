@@ -12,13 +12,21 @@ with st.sidebar:
   
   stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
   stroke_color = st.color_picker("Color de trazo", "#FFFFFF")
-  fill_color = st.color_picker("Fill", "#FFFFFF")
+  fill_hex = st.color_picker("Fill", "#FFFFFF")
+
+  # Convert HEX to RGBA with lower opacity (e.g., 0.5)
+def hex_to_rgba(hex_color, alpha=0.5):
+    hex_color = hex_color.lstrip("#")
+    r, g, b = tuple(int(hex_color[i:i+2], 16) for i in (0, 2 ,4))
+    return f"rgba({r}, {g}, {b}, {alpha})"
+
+fill_color_rgba = hex_to_rgba(fill_hex, alpha=0.5)
   
   bg_color = '#000000'
 
 # Create a canvas component
 canvas_result = st_canvas(
-    fill_color = fill_color,0.5  # Fixed fill color with some opacity
+    fill_color = fill_color_rgba,  # Transparent fill
     stroke_width=stroke_width,
     stroke_color=stroke_color,
     background_color=bg_color,
