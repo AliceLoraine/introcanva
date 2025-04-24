@@ -18,7 +18,7 @@ with st.sidebar:
 
 # Create a canvas component
 canvas_result = st_canvas(
-    fill_color = (fill_color,0.5)  # Fixed fill color with some opacity
+    fill_color = fill_color,0.5  # Fixed fill color with some opacity
     stroke_width=stroke_width,
     stroke_color=stroke_color,
     background_color=bg_color,
