@@ -22,7 +22,7 @@ def hex_to_rgba(hex_color, alpha=0.5):
 
 fill_color_rgba = hex_to_rgba(fill_hex, alpha=0.5)
   
-  bg_color = '#000000'
+bg_color = '#000000'
 
 # Create a canvas component
 canvas_result = st_canvas(
